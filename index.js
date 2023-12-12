@@ -15,10 +15,10 @@ app.get("/", (req,res) =>{
     res.send("Api is Running Successfully");
 })
 
-app.get("/api/chat", (req,res) =>{
-    res.send(chats)
-    // console.log(chats)
-})
+// app.get("/api/chat", (req,res) =>{
+//     res.send(chats)
+//     // console.log(chats)
+// })
 
 app.get("/api/chat/:id", (req,res) =>{
     const singleChat = chats.find((c)=> c._id == req.params.id);
@@ -29,7 +29,7 @@ app.use("/api/user", userRoutes);
 app.use("/api/chat", chatRoute);
 app.use(notFound);
 app.use(errorHandler);
-const PORT = process.env.PORT  || 5000
+const PORT = process.env.PORT  || 8000
 
 connectDB().then(()=>{
     app.listen(PORT, () =>{
