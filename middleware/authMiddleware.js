@@ -3,7 +3,7 @@ const User = require("../modals/userModal");
 const asyncHandler = require("express-async-handler");
 
 const protect = asyncHandler(async (req, res, next) => {
-  console.log(req)
+  // console.log(req)
   let token;
   
   if (
@@ -15,7 +15,7 @@ const protect = asyncHandler(async (req, res, next) => {
       
       //decodes token id
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
-      console.log(req.user)
+      // console.log(req.user)
       req.user = await User.findById(decoded.id).select("-password");
 
       next();

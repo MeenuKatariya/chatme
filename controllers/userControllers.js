@@ -53,6 +53,7 @@ const registerUser = asyncHandler(async (req, res) => {
       pic: user.pic,
       token: generateToken(user._id),
     });
+    
   } else {
     res.status(400);
     throw new Error("User not found");
