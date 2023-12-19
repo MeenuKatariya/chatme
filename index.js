@@ -13,7 +13,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.get("/", (req,res) =>{
-    res.send("Api is Running Successfully");
+    res.send("Api is  Successfully");
 })
 
 

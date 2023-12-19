@@ -1,14 +1,17 @@
 const mongoose = require("mongoose");
-require('dotenv').config();
+require("dotenv").config();
 
- const connectDB = async() =>{
-    try{
-      await mongoose.connect("mongodb://localhost:27017");
-      console.log("Mongodb connected successfully");
+const PASSWORD = process.env.PASSWORD;
 
-    }catch(error){
-        console.log(error)
-    }
-}
+const connectDB = async () => {
+  try {
+    await mongoose.connect(
+      `mongodb+srv://katariyameenu963:${PASSWORD}@chatme.emt2jk9.mongodb.net/?retryWrites=true&w=majority`
+    );
+    console.log("Mongodb connected successfully");
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 module.exports = { connectDB };
